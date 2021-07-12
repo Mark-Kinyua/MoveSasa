@@ -1,0 +1,2 @@
+rootProject.name = "MoveSasa"
+include ':app'
