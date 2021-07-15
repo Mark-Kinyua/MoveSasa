@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RegisterActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     //Declare instances of the views
     private Button registerBtn;
@@ -40,7 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
@@ -65,7 +65,7 @@ public class RegisterActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(loginIntent);
             }
         });
@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(RegisterActivity.this, "LOADING...",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "LOADING...",Toast.LENGTH_LONG).show();
                 //Get the data entered
                 final String username = user_name.getText().toString().trim();
                 final String email = email_address.getText().toString().trim();
@@ -103,23 +103,23 @@ public class RegisterActivity extends AppCompatActivity {
                                 current_user_db.child("Username").setValue(username);
                                 current_user_db.child("Image").setValue("Default");
                                 //Toast to show successful registration
-                                Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
 
                                 //Launch the Profile Activity for user to set their preference profile picture
-                                Intent profileIntent = new Intent(RegisterActivity.this, ProfileActivity.class);
+                                Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
                                 profileIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(profileIntent);
                             }
                             else{
                                 String error = task.getException().getMessage();
-                                Toast.makeText(RegisterActivity.this, "Error: " + error, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Error: " + error, Toast.LENGTH_SHORT).show();
                             }
 
                         }
                     });
                 }
                 else{
-                    Toast.makeText(RegisterActivity.this, "Complete all the fields",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Complete all the fields",Toast.LENGTH_SHORT).show();
                 }
             }
         });
