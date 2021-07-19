@@ -57,10 +57,10 @@ public class MainActivity extends AppCompatActivity {
         //Initialize an instance of Firebase database by calling the getInstance() method
         myDatabase = FirebaseDatabase.getInstance();
 
-        //Initialize an instance of Firebase Database reference by calling the databas instance, getting a reference using the get reference() method on the databasw, and creating a new child node, in this case "Users" where we will store details of registered users
+        //Initialize an instance of Firebase Database reference by calling the database instance, getting a reference using the get reference() method on the databasw, and creating a new child node, in this case "Users" where we will store details of registered users
         userReference = myDatabase.getReference().child("Users");
 
-        /*For already registered users, they are redirected to the login page without directly registering them again
+        /*For already registered users, they are redirected to the login page to sign in.
         An onClickListener is set on the text view in order that the user can be redirected to the Login Activity*/
         login.setOnClickListener(new View.OnClickListener() {
             @Override

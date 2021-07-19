@@ -94,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    //This method checks iif the user exists
+    //This method checks if the user exists
     public void checkUserExistence(){
         //Using the user id to check if the user exists
         final String user_id = myAuthentication.getCurrentUser().getUid();
